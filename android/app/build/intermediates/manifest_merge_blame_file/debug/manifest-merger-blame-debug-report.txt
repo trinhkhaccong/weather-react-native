@@ -1,0 +1,77 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.weathervn"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="29" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/congtk/WeatherVN/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/home/congtk/WeatherVN/android/app/src/debug/AndroidManifest.xml:5:22-75
+12    <!-- Define ACCESS_FINE_LOCATION if you will use enableHighAccuracy=true -->
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:6:5-78
+13-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:6:22-76
+14
+15    <!-- Define ACCESS_COARSE_LOCATION if you will use enableHighAccuracy=false -->
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:9:5-80
+16-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:9:22-78
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:4:5-67
+17-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:4:22-64
+18    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+18-->[com.facebook.flipper:flipper:0.37.0] /home/congtk/.gradle/caches/transforms-2/files-2.1/623174cd4892d9fb924ac44b102b25c0/flipper-0.37.0/AndroidManifest.xml:16:5-76
+18-->[com.facebook.flipper:flipper:0.37.0] /home/congtk/.gradle/caches/transforms-2/files-2.1/623174cd4892d9fb924ac44b102b25c0/flipper-0.37.0/AndroidManifest.xml:16:22-73
+19
+20    <application
+20-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:11:5-30:19
+21        android:name="com.weathervn.MainApplication"
+21-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:12:7-38
+22        android:allowBackup="false"
+22-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:16:7-34
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.1.0] /home/congtk/.gradle/caches/transforms-2/files-2.1/639e914bfc1efa21e36199d3ff2c5eef/core-1.1.0/AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/ic_launcher"
+25-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:14:7-41
+26        android:label="@string/app_name"
+26-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:13:7-39
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:15:7-52
+28        android:theme="@style/AppTheme"
+28-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:17:7-38
+29        android:usesCleartextTraffic="true" >
+29-->/home/congtk/WeatherVN/android/app/src/debug/AndroidManifest.xml:11:18-53
+30        <activity
+30-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:18:7-28:18
+31            android:name="com.weathervn.MainActivity"
+31-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:19:9-37
+32            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+32-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:21:9-86
+33            android:label="@string/app_name"
+33-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:20:9-41
+34            android:launchMode="singleTask"
+34-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:22:9-40
+35            android:windowSoftInputMode="adjustResize" >
+35-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:23:9-51
+36            <intent-filter>
+36-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:24:9-27:25
+37                <action android:name="android.intent.action.MAIN" />
+37-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:25:13-65
+37-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:25:21-62
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:26:13-73
+39-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:26:23-70
+40            </intent-filter>
+41        </activity>
+42        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+42-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:29:7-84
+42-->/home/congtk/WeatherVN/android/app/src/main/AndroidManifest.xml:29:17-81
+43    </application>
+44
+45</manifest>
