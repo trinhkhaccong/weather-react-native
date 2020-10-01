@@ -16,6 +16,7 @@
     "react-native": "0.63.2",
     "react-native-get-location": "^1.4.3",
     "react-native-indicators": "^0.17.0",
+    "react-native-calendar-picker": "^7.0.1",
     "react-native-tab-navigator": "^0.3.4"
   },
   "devDependencies": {
