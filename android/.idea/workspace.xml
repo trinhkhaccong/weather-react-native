@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="243b44f9-dcd8-4b27-a4c2-0bc8b7d93ef1" name="Default Changelist" comment="" />
+    <list default="true" id="4365fc1f-3263-4c3f-87ed-c83696864c4b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,20 +20,68 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WeatherVN" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WeatherVN" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WeatherVN" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="WeatherVN" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="install" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
-  <component name="ProjectId" id="1i6YMmStHlbIMQvcf0zs2nx7nt6" />
+  <component name="GenerateSignedApkSettings">
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="$USER_HOME$/key/keyAppWeather2.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
+  <component name="ProjectId" id="1iJMsHIbD7WBG8m3SueHKOa1Pms" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ApkExportedModule" value="app" />
+    <property name="BundleExportedModule" value="app" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VNPBKBSK1800041" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-10-02T10:25:58.838Z" />
+    <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
+    <property name="ExportApk.BuildVariants" value="release" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/key/keyAppWeather.jks" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.android:app [uninstallAll]">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -37,7 +89,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -88,24 +140,168 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="android:app [installDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="installDebug" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="android:app [uninstallAll]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="uninstallAll" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="android:app [uninstallDebugAndroidTest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="uninstallDebugAndroidTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="android:app [uninstallDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="uninstallDebug" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="android:app [uninstallRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="uninstallRelease" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.android:app [uninstallDebugAndroidTest]" />
+        <item itemvalue="Gradle.android:app [uninstallRelease]" />
+        <item itemvalue="Gradle.android:app [installDebug]" />
+        <item itemvalue="Gradle.android:app [uninstallAll]" />
+        <item itemvalue="Gradle.android:app [uninstallDebug]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="243b44f9-dcd8-4b27-a4c2-0bc8b7d93ef1" name="Default Changelist" comment="" />
-      <created>1601229462533</created>
+      <changelist id="4365fc1f-3263-4c3f-87ed-c83696864c4b" name="Default Changelist" comment="" />
+      <created>1601621447397</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601229462533</updated>
+      <updated>1601621447397</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="175" y="134" width="1081" height="504" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1601229470533">
+    <state x="490" y="151" key="FileChooserDialogImpl" timestamp="1601627324482">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="175" y="134" width="1081" height="504" key="com.android.tools.idea.avdmanager.AvdListDialog/65.24.1301.744@65.24.1301.744" timestamp="1601229470533" />
+    <state x="490" y="151" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1601627324482" />
+    <state width="1255" height="186" key="GridCell.Tab.0.bottom" timestamp="1601638476646">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="186" key="GridCell.Tab.0.bottom/65.24.1301.744@65.24.1301.744" timestamp="1601638476646" />
+    <state width="1255" height="186" key="GridCell.Tab.0.center" timestamp="1601638476646">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="186" key="GridCell.Tab.0.center/65.24.1301.744@65.24.1301.744" timestamp="1601638476646" />
+    <state width="1255" height="186" key="GridCell.Tab.0.left" timestamp="1601638476645">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="186" key="GridCell.Tab.0.left/65.24.1301.744@65.24.1301.744" timestamp="1601638476645" />
+    <state width="1255" height="186" key="GridCell.Tab.0.right" timestamp="1601638476646">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="186" key="GridCell.Tab.0.right/65.24.1301.744@65.24.1301.744" timestamp="1601638476646" />
+    <state width="1255" height="231" key="GridCell.Tab.1.bottom" timestamp="1601636693811">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="231" key="GridCell.Tab.1.bottom/65.24.1301.744@65.24.1301.744" timestamp="1601636693811" />
+    <state width="1255" height="231" key="GridCell.Tab.1.center" timestamp="1601636693810">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="231" key="GridCell.Tab.1.center/65.24.1301.744@65.24.1301.744" timestamp="1601636693810" />
+    <state width="1255" height="231" key="GridCell.Tab.1.left" timestamp="1601636693810">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="231" key="GridCell.Tab.1.left/65.24.1301.744@65.24.1301.744" timestamp="1601636693810" />
+    <state width="1255" height="231" key="GridCell.Tab.1.right" timestamp="1601636693810">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state width="1255" height="231" key="GridCell.Tab.1.right/65.24.1301.744@65.24.1301.744" timestamp="1601636693810" />
+    <state x="155" y="179" width="1057" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1601635413117">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="155" y="179" width="1057" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/65.24.1301.744@65.24.1301.744" timestamp="1601635413117" />
+    <state x="275" y="102" width="881" height="609" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601631798817">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="275" y="102" width="881" height="609" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/65.24.1301.744@65.24.1301.744" timestamp="1601631798817" />
   </component>
 </project>

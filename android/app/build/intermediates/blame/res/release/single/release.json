@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_component_weather_background2.jpg.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/component_weather_background2.jpg"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_notify.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_notify.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_notify_color.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_notify_color.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_weather.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_weather.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_date.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_date.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/raw_app.json.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/raw/app.json"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_weather_color.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_weather_color.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_date_color.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_date_color.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_component_weather_localtion.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/component_weather_localtion.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_component_weather_3.jpg.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/component_weather_3.jpg"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_image_do_c.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/image_do_c.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/drawable-mdpi_component_day_2.jpg.flat",
+        "source": "/home/congtk/WeatherVN/android/app/build/generated/res/react/release/drawable-mdpi/component_day_2.jpg"
+    },
+    {
+        "merged": "/home/congtk/WeatherVN/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/congtk/WeatherVN/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    }
+]

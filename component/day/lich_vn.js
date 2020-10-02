@@ -12,7 +12,15 @@ import {
 
 import CalendarPicker from 'react-native-calendar-picker';
 import moment from 'moment';
-import 'moment/locale/vi' 
+import getTodayString, {
+  getDateNow,
+  getLunarDate,
+  getGioHoangDao,
+  checkHolidayLunar,
+  checkHolidaySolar,
+  getDayName,
+} from './lich_am';
+import 'moment/locale/vi';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,20 +34,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-import LichAm from './lich_am'
+
 export default LichVN = () => {
   var {width, height} = Dimensions.get('window');
-  const [date, setDate] = useState(moment(new Date().getTime()).locale('vi').format('dddd  DD/MM/YYYY'));
+  var today = new Date();
+  const [date, setDate] = useState(moment(new Date().getTime()));
+  const [currentLunarDate, setCurent] = useState(
+    getLunarDate(today.getDate(), today.getMonth() + 1, today.getFullYear()),
+  );
   useEffect(() => {
     let get_date = moment(new Date().getTime()).format('YYYY-MM-DD');
   });
+
+  const selectdate = (e) => {
+    setDate(e);
+    setCurent(
+      getLunarDate(
+        new Date(e).getDate(),
+        new Date(e).getMonth() + 1,
+        new Date(e).getFullYear(),
+      ),
+    );
+  };
   return (
     <ImageBackground style={styles.backgroundImage} source={require('./2.jpg')}>
-      <View style={{flex: 2, position: 'absolute'}}>
+      <ScrollView style={{flex: 2}}>
         <CalendarPicker
-          onDateChange={(e) => {
-            setDate(moment(e).format('dddd  DD/MM/YYYY'))
-          }}
+          onDateChange={(e) => selectdate(e)}
           startFromMonday={true}
           todayBackgroundColor="#FF9900"
           selectedDayColor="#CCFFFF"
@@ -48,7 +69,7 @@ export default LichVN = () => {
             color: '#FFFFFF',
           }}
           todayTextStyle={{fontWeight: 'bold'}}
-          weekdays={[ 'T2', 'T3', 'T4', 'T5', 'T6', 'T7','CN']}
+          weekdays={['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']}
           months={[
             'Th1',
             'Th2',
@@ -68,6 +89,7 @@ export default LichVN = () => {
         <View
           style={{
             marginTop: 10,
+            marginBottom: 10,
             padding: 10,
             paddingTop: 20,
             paddingBottom: 15,
@@ -77,20 +99,150 @@ export default LichVN = () => {
             width: width,
             backgroundColor: 'rgba(0, 0, 0, 0.3);',
           }}>
-            <View>
-            <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 'bold',
-              color: 'orange',
-            }}>
-            Dương lịch {date}
-          </Text>
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <View style={{flex: 1}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'orange',
+                  textAlign: 'center',
+                }}>
+                Dương lịch
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                }}>
+                Tháng {moment(date).format('MM')} Năm{' '}
+                {moment(date).format('YYYY')}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 40,
+                  fontWeight: 'bold',
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                }}>
+                {moment(date).format('DD')}
+              </Text>
             </View>
-           
-           
+
+            <View style={{flex: 1}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'orange',
+                  textAlign: 'center',
+                }}>
+                Âm lịch
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                }}>
+                {getTodayString(currentLunarDate)}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 40,
+                  fontWeight: 'bold',
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                }}>
+                {getDateNow(currentLunarDate)}
+              </Text>
+            </View>
+          </View>
+          <View
+            style={{
+              marginTop: 10,
+              padding: 10,
+              paddingTop: 20,
+              paddingBottom: 15,
+              borderColor: 'orange',
+              borderWidth: 2,
+              borderRadius: 10,
+              backgroundColor: 'rgba(0, 0, 0, 0.6);',
+            }}>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                color: '#FFFFFF',
+                textAlign: 'center',
+              }}>
+              {getDayName(currentLunarDate)}
+            </Text>
+
+            <View style={{flex: 0, paddingTop: 10}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: '#FF3399',
+                  textAlign: 'center',
+                }}>
+                {checkHolidayLunar(
+                  currentLunarDate.day,
+                  currentLunarDate.month,
+                )}
+              </Text>
+
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: '#FF3399',
+                  textAlign: 'center',
+                }}>
+                {checkHolidaySolar(
+                  new Date(date).getDate(),
+                  new Date(date).getMonth() + 1,
+                )}
+              </Text>
+            </View>
+            <View
+              style={{
+                borderBottomColor: 'white',
+                borderBottomWidth: 1,
+                marginTop: 3,
+                marginBottom: 3,
+              }}
+            />
+            <View>
+              <Text
+                style={{
+                  padding: 5,
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  color: 'orange',
+                  textAlign: 'center',
+                }}>
+                Giờ hoàng đạo
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                  color: '#FFFFFF',
+                  textAlign: 'center',
+                }}>
+                {getGioHoangDao(currentLunarDate.jd)}
+              </Text>
+            </View>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 };

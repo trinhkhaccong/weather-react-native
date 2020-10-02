@@ -7,10 +7,13 @@ import {
   Image,
   ImageBackground,
   Dimensions,
+  Platform,
+  PermissionsAndroid
 } from 'react-native';
 import axios from 'axios';
-import GetLocation from 'react-native-get-location';
+import Geolocation from 'react-native-geolocation-service';
 import {UIActivityIndicator} from 'react-native-indicators';
+import WeatherSevenDay from './list_weather'
 import moment from 'moment';
 import 'moment/locale/en-ca'
 
@@ -51,9 +54,10 @@ export default Weather = () => {
   var {width, height} = Dimensions.get('window');
   let res = null;
   let res2 = null;
+
   useEffect(() => {
     let int_time = parseInt(moment(new Date().getTime()).format("HH"),10)
-      if( (int_time> 6) && (13 > int_time))
+      if( (int_time> 6) && (18 > int_time))
       {
         setLink(true)
       }
@@ -63,36 +67,71 @@ export default Weather = () => {
       }
     const get_api = async () => {
       
-      setCheckLoad(true)
-      
-      GetLocation.getCurrentPosition({
-        enableHighAccuracy: true,
-        timeout: 15000,
-      })
-        .then(async (location) => {
-          res = await axios({
-            method: 'get',
-            url:
-              'https://openweathermap.org/data/2.5/weather?lat=' +
-              location.latitude.toString() +
-              '&lon=' +
-              location.longitude.toString() +
-              '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
-          });
-          res2 = await axios({
-            method: 'get',
-            url:
-              'https://openweathermap.org/data/2.5/onecall?lat=' +
-              location.latitude.toString() +
-              '&lon=' +
-              location.longitude.toString() +
-              '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
-          });
-          await setData(res.data);
-          await setDataSevenDay(res2.data.daily);
-          await setCheckLoad(false);
-        })
-        .catch(async (error) => {
+      if (Platform.OS === 'ios') {
+        Geolocation.requestAuthorization();
+        Geolocation.setRNConfiguration({
+          skipPermissionRequests: false,
+         authorizationLevel: 'whenInUse',
+       });
+      }
+    
+      if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.check(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        );
+        if(granted)
+        {
+         await Geolocation.getCurrentPosition(
+            async(position) => {
+             
+              setCheckLoad(true)
+              res = await axios({
+                method: 'get',
+                url:
+                  'https://openweathermap.org/data/2.5/weather?lat=' +
+                  position.coords.latitude.toString() +
+                  '&lon=' +
+                  position.coords.longitude.toString() +
+                  '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
+              });
+             
+              res2 = await axios({
+                method: 'get',
+                url:
+                  'https://openweathermap.org/data/2.5/onecall?lat=' +
+                  position.coords.latitude.toString() +
+                  '&lon=' +
+                  position.coords.longitude.toString() +
+                  '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+              });
+              await setData(res.data);
+              await setDataSevenDay(res2.data.daily);
+              await setCheckLoad(false);
+            },
+            async(error) => {
+              // See error code charts below.
+              console.log("error",error)
+              setCheckLoad(true)
+              res = await axios({
+                method: 'get',
+                url:
+                  'https://openweathermap.org/data/2.5/weather?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
+              });
+              res2 = await axios({
+                method: 'get',
+                url:
+                  'https://openweathermap.org/data/2.5/onecall?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+              });
+              await setData(res.data);
+              await setDataSevenDay(res2.data.daily);
+              await setCheckLoad(false);
+            },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+        );
+        }
+        else
+        {
+          setCheckLoad(true)
           res = await axios({
             method: 'get',
             url:
@@ -106,7 +145,8 @@ export default Weather = () => {
           await setData(res.data);
           await setDataSevenDay(res2.data.daily);
           await setCheckLoad(false);
-        });
+        }
+      }
     };
     get_api();
   }, [height, width,link_image,res]);
@@ -257,102 +297,7 @@ export default Weather = () => {
                   }}
                 />
               </View>
-              <ScrollView
-                style={{flex: 1, color: 'white', textAlign: 'center'}}>
-                {datasevenday.map((value, index) => (
-                  <View
-                    key={index}
-                    style={{
-                      margin: 2,
-                      borderColor: '#FFF',
-                      borderWidth: 1,
-                      borderRadius: 15,
-                      backgroundColor: 'rgba(0, 0, 0, 0.7); ',
-                      padding: 10,
-                    }}>
-                    <View
-                      style={{flex: 1, flexDirection: 'row', paddingLeft: 10}}>
-                      <View style={{flex: 1}}>
-                        <Text
-                          style={{
-                            fontSize: 20,
-                            fontWeight: 'bold',
-                            color: '#FFF',
-                          }}>
-                          {moment(
-                            new Date(value.dt * 1000).toLocaleDateString(
-                              'vi-VN',
-                            ),
-                          ).locale('EN')
-                            .format('dddd')}
-                        </Text>
-                      </View>
-                      <View style={{flex: 1}}>
-                        <Text
-                          style={{
-                            fontSize: 20,
-                            fontWeight: 'bold',
-                            color: '#FFF',
-                          }}>
-                          {moment(new Date(value.dt * 1000)).format(
-                            'DD/MM/YYYY',
-                          )}
-                        </Text>
-                      </View>
-                    </View>
-
-                    <View style={{flex: 1, flexDirection: 'row'}}>
-                      <View style={{flex: 1,}}>
-                        <Text>
-                          <Image
-                            style={{width: 40, height: 40}}
-                            source={{
-                              uri:
-                                'https://openweathermap.org/img/wn/' +
-                                value.weather[0].icon +
-                                '@2x.png',
-                            }}
-                          />
-                          <Text
-                            style={{
-                              fontSize: 20,
-                              fontWeight: 'bold',
-                              color: '#FFF',
-                            }}>
-                            {Math.ceil(value.temp.day)}/
-                            {Math.ceil(value.temp.min)}{' '}
-                            <Image
-                              style={{width: 20, height: 20}}
-                              source={require('../../image/do_c.png')}
-                            />
-                          </Text>
-                        </Text>
-                      </View>
-                      <View style={{ flex: 1,paddingTop:20,paddingLeft:10}}>
-                        <Text>
-                          <Text
-                            style={{
-                              fontSize: 20,
-                              fontWeight: 'bold',
-                              color: '#FFF',
-                            }}>
-                            Độ ẩm{' '}
-                          </Text>
-                          <Text
-                            style={{
-
-                              fontSize: 20,
-                              fontWeight: 'bold',
-                              color: 'orange',
-                            }}>
-                            {value.humidity}%
-                          </Text>
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
-                ))}
-              </ScrollView>
+                  {WeatherSevenDay(datasevenday)}
             </View>
           )}
         </View>
