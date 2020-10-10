@@ -11,8 +11,13 @@ import {
 export default  Notify=()=>{
 return (
     <View>
-        <Text>
-            Thông Báo
+        <Text style={{
+                  fontSize: 40,
+                  fontWeight: 'bold',
+                  color: 'orange',
+                  textAlign: 'center',
+                }}>
+            Chức năng đang phát triển !
         </Text>
     </View>
 )

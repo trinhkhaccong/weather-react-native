@@ -20,7 +20,6 @@ import getTodayString, {
   checkHolidaySolar,
   getDayName,
 } from './lich_am';
-import 'moment/locale/vi';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,13 +60,17 @@ export default LichVN = () => {
       <ScrollView style={{flex: 2}}>
         <CalendarPicker
           onDateChange={(e) => selectdate(e)}
+          onSwipe={(e)=>console.log(e)}
+          
           startFromMonday={true}
           todayBackgroundColor="#FF9900"
           selectedDayColor="#CCFFFF"
+          showDayStragglers={true}
           textStyle={{
             fontSize: 18,
             color: '#FFFFFF',
           }}
+          
           todayTextStyle={{fontWeight: 'bold'}}
           weekdays={['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']}
           months={[

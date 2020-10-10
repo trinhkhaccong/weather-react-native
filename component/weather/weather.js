@@ -8,15 +8,15 @@ import {
   ImageBackground,
   Dimensions,
   Platform,
-  PermissionsAndroid
+  PermissionsAndroid,
+  Alert,
 } from 'react-native';
 import axios from 'axios';
-import Geolocation from 'react-native-geolocation-service';
+import Geolocation from '@react-native-community/geolocation';
 import {UIActivityIndicator} from 'react-native-indicators';
-import WeatherSevenDay from './list_weather'
+import translate from 'translate-google-api';
+import WeatherSevenDay from './list_weather';
 import moment from 'moment';
-import 'moment/locale/en-ca'
-
 const styles = StyleSheet.create({
   bo_cuc: {
     flex: 2,
@@ -46,116 +46,141 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
 export default Weather = () => {
   const [data, setData] = useState({});
   const [datasevenday, setDataSevenDay] = useState([]);
   const [checkload, setCheckLoad] = useState(true);
-  const [link_image,setLink] =useState(true)
+  const [link_image, setLink] = useState(true);
+  const [city, setcity] = useState('');
+  const [weather, setWeather] = useState('');
+
   var {width, height} = Dimensions.get('window');
   let res = null;
   let res2 = null;
 
   useEffect(() => {
-    let int_time = parseInt(moment(new Date().getTime()).format("HH"),10)
-      if( (int_time> 6) && (18 > int_time))
-      {
-        setLink(true)
-      }
-      else
-      {
-        setLink(false)
-      }
+    let int_time = parseInt(moment(new Date().getTime()).format('HH'), 10);
+    if (int_time > 6 && 18 > int_time) {
+      setLink(true);
+    } else {
+      setLink(false);
+    }
     const get_api = async () => {
-      
       if (Platform.OS === 'ios') {
         Geolocation.requestAuthorization();
         Geolocation.setRNConfiguration({
           skipPermissionRequests: false,
-         authorizationLevel: 'whenInUse',
-       });
+          authorizationLevel: 'whenInUse',
+        });
       }
-    
+
       if (Platform.OS === 'android') {
-        const granted = await PermissionsAndroid.check(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        );
-        if(granted)
-        {
-         await Geolocation.getCurrentPosition(
-            async(position) => {
-             
-              setCheckLoad(true)
-              res = await axios({
-                method: 'get',
-                url:
-                  'https://openweathermap.org/data/2.5/weather?lat=' +
-                  position.coords.latitude.toString() +
-                  '&lon=' +
-                  position.coords.longitude.toString() +
-                  '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
-              });
-             
-              res2 = await axios({
-                method: 'get',
-                url:
-                  'https://openweathermap.org/data/2.5/onecall?lat=' +
-                  position.coords.latitude.toString() +
-                  '&lon=' +
-                  position.coords.longitude.toString() +
-                  '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
-              });
-              await setData(res.data);
-              await setDataSevenDay(res2.data.daily);
-              await setCheckLoad(false);
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            {
+              title: 'Application wants location Permission',
+              message: 'Application wants location Permission',
+              buttonNeutral: 'Ask Me Later',
+              buttonNegative: 'Cancel',
+              buttonPositive: 'OK',
             },
-            async(error) => {
-              // See error code charts below.
-              console.log("error",error)
-              setCheckLoad(true)
-              res = await axios({
-                method: 'get',
-                url:
-                  'https://openweathermap.org/data/2.5/weather?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
-              });
-              res2 = await axios({
-                method: 'get',
-                url:
-                  'https://openweathermap.org/data/2.5/onecall?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
-              });
-              await setData(res.data);
-              await setDataSevenDay(res2.data.daily);
-              await setCheckLoad(false);
-            },
-            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-        );
-        }
-        else
-        {
-          setCheckLoad(true)
-          res = await axios({
-            method: 'get',
-            url:
-              'https://openweathermap.org/data/2.5/weather?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02&units=metric&lang=vi',
-          });
-          res2 = await axios({
-            method: 'get',
-            url:
-              'https://openweathermap.org/data/2.5/onecall?lat=21.02&lon=105.84&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
-          });
-          await setData(res.data);
-          await setDataSevenDay(res2.data.daily);
-          await setCheckLoad(false);
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            await Geolocation.getCurrentPosition(
+              async (position) => {
+                setCheckLoad(true);
+                res = await axios({
+                  method: 'get',
+                  url:
+                    'https://openweathermap.org/data/2.5/weather?lat=' +
+                    position.coords.latitude.toString() +
+                    '&lon=' +
+                    position.coords.longitude.toString() +
+                    '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+                });
+
+                res2 = await axios({
+                  method: 'get',
+                  url:
+                    'https://openweathermap.org/data/2.5/onecall?lat=' +
+                    position.coords.latitude.toString() +
+                    '&lon=' +
+                    position.coords.longitude.toString() +
+                    '&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+                });
+
+                const result = await translate(res.data.name, {
+                  from: 'en',
+                  tld: 'com',
+                  to: 'vi',
+                });
+
+                const result2 = await translate(
+                  res.data.weather[0].description,
+                  {
+                    from: 'en',
+                    tld: 'com',
+                    to: 'vi',
+                  },
+                );
+
+                setData(res.data);
+                setcity(result[0]);
+                setWeather(result2[0]);
+                setDataSevenDay(res2.data.daily);
+                setCheckLoad(false);
+              },
+              async (error) => {
+                Alert.alert(error.message);
+                setCheckLoad(true);
+                res = await axios({
+                  method: 'get',
+                  url:
+                    'https://openweathermap.org/data/2.5/weather?lat=10.8333&lon=106.6667&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+                });
+                res2 = await axios({
+                  method: 'get',
+                  url:
+                    'https://openweathermap.org/data/2.5/onecall?lat=10.8333&lon=106.6667&units=metric&appid=439d4b804bc8187953eb36d2a8c26a02',
+                });
+                const result = await translate(res.data.name, {
+                  from: 'en',
+                  tld: 'com',
+                  to: 'vi',
+                });
+
+                const result2 = await translate(
+                  res.data.weather[0].description,
+                  {
+                    from: 'en',
+                    tld: 'com',
+                    to: 'vi',
+                  },
+                );
+
+                setData(res.data);
+                setcity(result[0]);
+                setWeather(result2[0]);
+                setDataSevenDay(res2.data.daily);
+                setCheckLoad(false);
+              }
+            );
+          }
+        } catch (error) {
+          Alert.alert(error.message);
         }
       }
     };
     get_api();
-  }, [height, width,link_image,res]);
+  }, [height, width, link_image, res]);
 
   return (
     <View style={styles.container}>
       <ImageBackground
         style={styles.backgroundImage}
-        source={link_image?require('./3.jpg'):require('./background2.jpg')}>
+        source={link_image ? require('./3.jpg') : require('./background2.jpg')}>
         <View>
           {checkload && <UIActivityIndicator color="white" size={60} />}
           {!checkload && (
@@ -185,7 +210,7 @@ export default Weather = () => {
                       style={{width: 20, height: 20}}
                       source={require('./localtion.png')}
                     />{' '}
-                    {data.name}
+                    {city}
                   </Text>
                   <Text
                     style={{
@@ -287,17 +312,17 @@ export default Weather = () => {
                       color: 'orange',
                       textAlign: 'center',
                     }}>
-                    {data.weather[0].description}
+                    {weather}
                   </Text>
                 </View>
 
                 <View
-                  style={{     
+                  style={{
                     width: width,
                   }}
                 />
               </View>
-                  {WeatherSevenDay(datasevenday)}
+              {WeatherSevenDay(datasevenday)}
             </View>
           )}
         </View>

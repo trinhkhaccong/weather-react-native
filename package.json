@@ -10,14 +10,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/geolocation": "^2.0.2",
     "axios": "^0.20.0",
+    "events": "^3.2.0",
+    "google-translate-api": "^2.3.0",
+    "http": "0.0.1-security",
     "moment": "^2.29.0",
+    "querystring": "^0.2.0",
     "react": "^16.13.1",
     "react-native": "0.63.2",
     "react-native-calendar-picker": "^7.0.1",
-    "react-native-geolocation-service": "^5.0.0",
     "react-native-indicators": "^0.17.0",
-    "react-native-tab-navigator": "^0.3.4"
+    "react-native-tab-navigator": "^0.3.4",
+    "translate-google-api": "^1.0.4",
+    "vm": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.11.6",

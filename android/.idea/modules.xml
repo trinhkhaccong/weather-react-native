@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1661511432/@react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/.idea/modules/1661511432/@react-native-community_geolocation.iml" group="WeatherVN/@react-native-community_geolocation" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WeatherVN.iml" filepath="$PROJECT_DIR$/.idea/modules/WeatherVN.iml" group="WeatherVN" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="WeatherVN/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1837449866/react-native-geolocation-service.iml" filepath="$PROJECT_DIR$/.idea/modules/-1837449866/react-native-geolocation-service.iml" group="WeatherVN/react-native-geolocation-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1661511432/react-native-community_geolocation.iml" filepath="$PROJECT_DIR$/.idea/modules/1661511432/react-native-community_geolocation.iml" group="WeatherVN/react-native-community_geolocation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-63343996/react-native-get-location.iml" filepath="$PROJECT_DIR$/.idea/modules/-63343996/react-native-get-location.iml" group="WeatherVN/react-native-get-location" />
     </modules>
   </component>
 </project>

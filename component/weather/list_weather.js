@@ -6,8 +6,8 @@ import {
   Image,
 } from 'react-native';
 import moment from 'moment';
-import 'moment/locale/en-ca';
-
+// import 'moment/locale/en-ca';
+const list_thu =[{en:"Monday",vn:"Thứ Hai"},{en:"Tuesday",vn:"Thứ Ba"},{en:"Wednesday",vn:"Thứ Tư"},{en:"Thursday",vn:"Thứ Năm"},{en:"Friday",vn:"Thứ Sáu"},{en:"Saturday",vn:"Thứ Bảy"},{en:"Sunday",vn:"Chủ Nhật"}]
 export default function WeatherSevenDay(datasevenday) {
   return (
     <ScrollView style={{flex: 1, color: 'white', textAlign: 'center'}}>
@@ -30,9 +30,14 @@ export default function WeatherSevenDay(datasevenday) {
                   fontWeight: 'bold',
                   color: '#FFF',
                 }}>
-                {moment(new Date(value.dt * 1000).toLocaleDateString('vi-VN'))
-                  .locale('EN')
-                  .format('dddd')}
+                {
+                list_thu.map(value2=>{
+                  if(value2.en === moment(new Date(value.dt * 1000)).format('dddd'))
+                  {
+                    return value2.vn
+                  }
+                })
+                }
               </Text>
             </View>
             <View style={{flex: 1}}>

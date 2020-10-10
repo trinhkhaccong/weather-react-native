@@ -8,6 +8,10 @@ target 'WeatherVN' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'ReactNativeGetLocation', :path => '../node_modules/react-native-get-location'
+
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'WeatherVNTests' do
     inherit! :complete
     # Pods for testing
